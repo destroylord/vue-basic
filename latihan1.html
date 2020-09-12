@@ -10,7 +10,9 @@
     <div id="app">
         <header>
             <img src="" alt="">
-            <h1 v-once>{{ name }}</h1>
+            <h1 v-once>{{ name.toUpperCase() }}</h1>
+            <h4>{{ 1+1 }}</h4>
+            <h4>{{ isActive ? 'success' : 'danger' }}</h4>
             <p>
                 The progressive Javascript Framework
             </p>
@@ -24,7 +26,8 @@
     <script>
         const data = {
             name : 'Fahmi Dafrin Maulana',
-            message : 'Hello World!'
+            message : 'Hello World!',
+            isActive : false
         }
 
         const vm = new Vue({
