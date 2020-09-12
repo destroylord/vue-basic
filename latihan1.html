@@ -7,5 +7,33 @@
 </head>
 <body>
     
+    <header>
+        <img src="" alt="">
+        <h1>What is Vue,js</h1>
+        <p>
+            The progressive Javascript Framework
+        </p>
+    </header>
+
+    <div id="app">
+        {{ message + name }}
+    </div>
+
+    <footer id="footer">
+        <p>Copyright 2020</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script>
+        const data = {
+            name : 'fahmi Dafrin Maulana',
+            message : 'Hello World!'
+        }
+
+        const vm = new Vue({
+            el : '#app',
+            data : data
+        })
+    </script>
 </body>
 </html>
