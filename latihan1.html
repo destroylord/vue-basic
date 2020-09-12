@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue beginner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital@1&display=swap" rel="stylesheet">
+    <style>
+        body{
+            margin: 5%;
+            font-family: 'Arimo', sans-serif;
+        }
+    </style>
+
 </head>
 <body>
     
@@ -12,7 +20,7 @@
             <img src="" alt="">
             <h1 v-once>{{ name.toUpperCase() }}</h1>
             <h4>{{ 1+1 }}</h4>
-            <h4>{{ isActive ? 'success' : 'danger' }}</h4>
+            <!-- <h4>{{ isActive ? 'success' : 'danger' }}</h4> -->
             <h5>{{ getName() }}</h5>
             <p>
                 The progressive Javascript Framework
@@ -25,18 +33,25 @@
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
     <script>
-        const data = {
-            name : 'Fahmi Dafrin Maulana',
-            message : 'Hello World!',
-            isActive : false
-        }
+        // const data = {
+        //     name : 'Fahmi Dafrin Maulana',
+        //     message : 'Hello World!',
+        //     isActive : false
+        // }
 
         const vm = new Vue({
             el : '#app',
-            data : data,
+            data : {
+                name : 'Fahmi Dafrin Maulana',
+                message : 'Hello World!',
+            },
             methods : {
                 getName : function () {
                     return 'Hello, ' +this.name
+                },
+                ubahNama : function (namaBaru) {
+                    this.name = namaBaru
+                    return this.getName()
                 }
             }
         })
