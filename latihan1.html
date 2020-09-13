@@ -36,17 +36,22 @@
             </p>
 
             <p>
-                <button v-bind:class = "{active:menu === 'home'}" @click="menu = 'home'">Home</button>
-                <button v-bind:class = "{active:menu === 'about'}" @click="menu = 'about'">About</button>
-                <button v-bind:class = "{active:menu === 'blog'}" @click="menu = 'blog'">Blog</button>
+                <a v-bind:class = "{active:menu === 'home'}" href="#" @click="gantiMenu('home', $event)">Home</a>
+                <a v-bind:class = "{active:menu === 'about'}" href="#" @click="gantiMenu('about', $event)">About</a>
+                <a v-bind:class = "{active:menu === 'blog'}" href="#" @click="gantiMenu('blog', $event)">Blog</a>
             </p>
             
             <h3>Daftar Kelas ({{ kelas.length }})</h3>
-            <ul v-if="kelas.length > 1">
-                <li v-for="(item, index) in kelas" :key="index">
-                    {{ index+1 }} - {{ item }}
-                </li>
-            </ul>
+            <template>
+                <div>
+                    <ul v-if="kelas.length > 1">
+                        <li v-for="(item, index) in kelas" :key="index">
+                            {{ index+1 }} - {{ item }}
+                        </li>
+                    </ul>
+                </div>
+            </template>
+          
             <li v-else>Kelas Belum tersedia</li>
 
             <h3>Mencari Bilangan Genap : {{ numbers }}</h3>
@@ -115,6 +120,11 @@
                     return data.filter(angka => {
                         return angka % 2 == 0
                     })
+                },
+                gantiMenu : function (data, event)  {
+                    event.preventDefault();
+                    console.log(event)
+                    this.menu = data
                 }
             },
             computed : {
