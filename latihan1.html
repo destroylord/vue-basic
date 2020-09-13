@@ -41,11 +41,13 @@
                 <button v-bind:class = "{active:menu === 'blog'}" @click="menu = 'blog'">Blog</button>
             </p>
             
-            <ul>
+            <h3>Daftar Kelas ({{ kelas.length }})</h3>
+            <ul v-if="kelas.length > 1">
                 <li v-for="(item, index) in kelas" :key="index">
                     {{ index+1 }} - {{ item }}
                 </li>
             </ul>
+            <li v-else>Kelas Belum tersedia</li>
 
             <h3>Mencari Bilangan Genap : {{ numbers }}</h3>
             <ul>
