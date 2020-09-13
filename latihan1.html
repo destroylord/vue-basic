@@ -22,6 +22,7 @@
             <h4>{{ 1+1 }}</h4>
             <!-- <h4>{{ isActive ? 'success' : 'danger' }}</h4> -->
             <h5>{{ getName() }}</h5>
+            <p>{{ namaLengkap }}</p>
             <p>
                 The progressive Javascript Framework
             </p>
@@ -44,14 +45,25 @@
             data : {
                 name : 'Fahmi Dafrin Maulana',
                 message : 'Hello World!',
+                qyt : 3,
+                namaDepan : 'Eli',
+                namaBelakang : 'Susi'
             },
             methods : {
                 getName : function () {
                     return 'Hello, ' +this.name
                 },
                 ubahNama : function (namaBaru) {
-                    this.name = namaBaru
+                    this.name = namaBaru    
                     return this.getName()
+                }
+            },
+            computed : {
+                totalBayar : function () {
+                    return this.qyt * 10000
+                },
+                namaLengkap : function () {
+                    return this.namaDepan + this.namaBelakang
                 }
             }
         })
