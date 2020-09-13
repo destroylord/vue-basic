@@ -23,6 +23,8 @@
             <!-- <h4>{{ isActive ? 'success' : 'danger' }}</h4> -->
             <h5>{{ getName() }}</h5>
             <p>{{ namaLengkap }}</p>
+            <h5>{{ bilangan }}</h5>
+            <p>bilangan ini adalah bilangan {{ infoBilangan }}</p>
             <p>
                 The progressive Javascript Framework
             </p>
@@ -47,7 +49,8 @@
                 message : 'Hello World!',
                 qyt : 3,
                 namaDepan : 'Eli',
-                namaBelakang : 'Susi'
+                namaBelakang : 'Susi',
+                bilangan : 2
             },
             methods : {
                 getName : function () {
@@ -64,6 +67,9 @@
                 },
                 namaLengkap : function () {
                     return this.namaDepan + this.namaBelakang
+                },
+                infoBilangan : function () {
+                    return this.bilangan%2 == 0 ? 'genap' : 'ganjil'
                 }
             }
         })
