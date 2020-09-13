@@ -17,7 +17,7 @@
     
     <div id="app">
         <header>
-            <img src="" alt="">
+            <img v-bind:src="gambar" alt="" width="250">
             <h1 v-text="namaDepan.toUpperCase()"></h1>
             <h4>{{ 1+1 }}</h4>
             <!-- <h4>{{ isActive ? 'success' : 'danger' }}</h4> -->
@@ -50,7 +50,8 @@
                 qyt : 3,
                 namaDepan : 'Eli',
                 namaBelakang : 'Susi',
-                bilangan : 2
+                bilangan : 2,
+                gambar : './images/vuejs.jpeg'
             },
             methods : {
                 getName : function () {
