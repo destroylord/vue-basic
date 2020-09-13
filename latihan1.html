@@ -10,6 +10,13 @@
             margin: 5%;
             font-family: 'Arimo', sans-serif;
         }
+
+        .active{
+            background: salmon;
+            color: wheat;
+            border: 0;
+            padding: 5px;
+        }
     </style>
 
 </head>
@@ -27,6 +34,11 @@
             <p>
                 <button @click="handleClick()">Ditekan</button>
             </p>
+
+            <button v-bind:class = "{active:menu === 'home'}" @click="menu = 'home'">Home</button>
+            <button v-bind:class = "{active:menu === 'about'}" @click="menu = 'about'">About</button>
+            <button v-bind:class = "{active:menu === 'blog'}" @click="menu = 'blog'">Blog</button>
+
             <p>
                 The progressive Javascript Framework
             </p>
@@ -53,7 +65,8 @@
                 namaDepan : 'Eli',
                 namaBelakang : 'Susi',
                 bilangan : 2,
-                gambar : './images/vuejs.jpeg'
+                gambar : './images/vuejs.jpeg',
+                menu : 'home'
             },
             methods : {
                 getName : function () {
