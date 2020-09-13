@@ -18,13 +18,15 @@
     <div id="app">
         <header>
             <img v-bind:src="gambar" alt="" width="250">
-            <h1 v-text="namaDepan.toUpperCase()"></h1>
-            <h4>{{ 1+1 }}</h4>
+            <h1 v-text="name.toUpperCase()"></h1>
             <!-- <h4>{{ isActive ? 'success' : 'danger' }}</h4> -->
             <h5>{{ getName() }}</h5>
             <p>{{ namaLengkap }}</p>
-            <h5>{{ bilangan }}</h5>
-            <p>bilangan ini adalah bilangan {{ infoBilangan }}</p>
+            
+            <p> <b>{{ bilangan }} </b> bilangan ini adalah bilangan {{ infoBilangan }}</p>
+            <p>
+                <button @click="handleClick()">Ditekan</button>
+            </p>
             <p>
                 The progressive Javascript Framework
             </p>
@@ -60,6 +62,11 @@
                 ubahNama : function (namaBaru) {
                     this.name = namaBaru    
                     return this.getName()
+                },
+                handleClick : function () {
+                    // mengubah data bilangan dan mengubah gambar
+                    this.bilangan++
+                    this.gambar = 'images/reactjs.jpg'
                 }
             },
             computed : {
@@ -70,7 +77,7 @@
                     return this.namaDepan + this.namaBelakang
                 },
                 infoBilangan : function () {
-                    return this.bilangan%2 == 0 ? 'genap' : 'ganjil'
+                    return this.bilangan%2 == 0 ? 'Genap' : 'Ganjil'
                 }
             }
         })
