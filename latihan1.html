@@ -40,6 +40,12 @@
                 <button v-bind:class = "{active:menu === 'about'}" @click="menu = 'about'">About</button>
                 <button v-bind:class = "{active:menu === 'blog'}" @click="menu = 'blog'">Blog</button>
             </p>
+            
+            <ul>
+                <li v-for="(item, index) of kelas" :key="index">
+                    {{ index+1 }} - {{ item }}
+                </li>
+            </ul>
 
             <p v-text="kelas"></p>
             <div>
@@ -53,8 +59,6 @@
                     <input type="checkbox" value="Angular" v-model="kelas">Angular
                 </label>
             </div>
-
-
 
             <p>
                 The progressive Javascript Framework
@@ -84,7 +88,7 @@
                 bilangan : 2,
                 gambar : './images/vuejs.jpeg',
                 menu : 'home',
-                kelas : []
+                kelas : ['Gilang', 'PHP', 'Ruby']
             },
             methods : {
                 getName : function () {
