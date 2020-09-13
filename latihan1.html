@@ -29,15 +29,32 @@
             <!-- <h4>{{ isActive ? 'success' : 'danger' }}</h4> -->
             <h5>{{ getName() }}</h5>
             <p>{{ namaLengkap }}</p>
-            
-            <p> <b>{{ bilangan }} </b> bilangan ini adalah bilangan {{ infoBilangan }}</p>
+            <input type="text" v-model="name">
+            <p><b>{{ bilangan }} </b> bilangan ini adalah bilangan {{ infoBilangan }}</p>
             <p>
                 <button @click="handleClick()">Ditekan</button>
             </p>
 
-            <button v-bind:class = "{active:menu === 'home'}" @click="menu = 'home'">Home</button>
-            <button v-bind:class = "{active:menu === 'about'}" @click="menu = 'about'">About</button>
-            <button v-bind:class = "{active:menu === 'blog'}" @click="menu = 'blog'">Blog</button>
+            <p>
+                <button v-bind:class = "{active:menu === 'home'}" @click="menu = 'home'">Home</button>
+                <button v-bind:class = "{active:menu === 'about'}" @click="menu = 'about'">About</button>
+                <button v-bind:class = "{active:menu === 'blog'}" @click="menu = 'blog'">Blog</button>
+            </p>
+
+            <p v-text="kelas"></p>
+            <div>
+                <label>
+                    <input type="checkbox" value="React" v-model="kelas">React
+                </label>
+                <label>
+                    <input type="checkbox" value="Vuejs" v-model="kelas">Vuejs
+                </label>
+                <label>
+                    <input type="checkbox" value="Angular" v-model="kelas">Angular
+                </label>
+            </div>
+
+
 
             <p>
                 The progressive Javascript Framework
@@ -66,7 +83,8 @@
                 namaBelakang : 'Susi',
                 bilangan : 2,
                 gambar : './images/vuejs.jpeg',
-                menu : 'home'
+                menu : 'home',
+                kelas : []
             },
             methods : {
                 getName : function () {
