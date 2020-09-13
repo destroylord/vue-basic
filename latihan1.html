@@ -42,9 +42,14 @@
             </p>
             
             <ul>
-                <li v-for="(item, index) of kelas" :key="index">
+                <li v-for="(item, index) in kelas" :key="index">
                     {{ index+1 }} - {{ item }}
                 </li>
+            </ul>
+
+            <h3>Mencari Bilangan Genap : {{ numbers }}</h3>
+            <ul>
+                <li v-for="x in cariBilanganGenap(numbers)">{{ x }}</li>
             </ul>
 
             <p v-text="kelas"></p>
@@ -88,7 +93,8 @@
                 bilangan : 2,
                 gambar : './images/vuejs.jpeg',
                 menu : 'home',
-                kelas : ['Gilang', 'PHP', 'Ruby']
+                kelas : ['Gilang', 'PHP', 'Ruby'],
+                numbers : [1, 2, 3, 4, 5]
             },
             methods : {
                 getName : function () {
@@ -102,6 +108,11 @@
                     // mengubah data bilangan dan mengubah gambar
                     this.bilangan++
                     this.gambar = 'images/reactjs.jpg'
+                },
+                cariBilanganGenap : (data) => {
+                    return data.filter(angka => {
+                        return angka % 2 == 0
+                    })
                 }
             },
             computed : {
