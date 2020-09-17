@@ -36,9 +36,9 @@
             </p>
 
             <p>
-                <a v-bind:class = "{active:menu === 'home'}" href="#" @click="gantiMenu('home', $event)">Home</a>
-                <a v-bind:class = "{active:menu === 'about'}" href="#" @click="gantiMenu('about', $event)">About</a>
-                <a v-bind:class = "{active:menu === 'blog'}" href="#" @click="gantiMenu('blog', $event)">Blog</a>
+                <a v-bind:class = "{active:menu === 'home'}" href="#" @click.prevent="gantiMenu('home')">Home</a>
+                <a v-bind:class = "{active:menu === 'about'}" href="#" @click.prevent="gantiMenu('about')">About</a>
+                <a v-bind:class = "{active:menu === 'blog'}" href="#" @click.prevent="gantiMenu('blog')">Blog</a>
             </p>
             
             <h3>Daftar Kelas ({{ kelas.length }})</h3>
@@ -122,8 +122,8 @@
                     })
                 },
                 gantiMenu : function (data, event)  {
-                    event.preventDefault();
-                    console.log(event)
+                    // event.preventDefault();
+                    // console.log(event)
                     this.menu = data
                 }
             },
