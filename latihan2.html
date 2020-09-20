@@ -25,31 +25,13 @@
     <div id="app">
         <!-- header -->
         <header-component></header-component>
-        <main>
-            <h1 v-text="name.toUpperCase()"></h1>
-            <!-- <h4>{{ isActive ? 'success' : 'danger' }}</h4> -->
-            <h3>Tambah kelas</h3>
-            <p>
-                <input type="text" v-on:keyup.enter="submit" placeholder="nama kelas" v-model="kelasBaru">
-            </p>
-            <hr>
-            
-            <h3>Daftar Kelas ({{ kelas.length }})</h3>
-            <template>
-                <div>
-                    <ul v-if="kelas.length > 1">
-                        <li v-for="(item, index) in kelas" :key="index">
-                            {{ index+1 }} - {{ item }}
-                        </li>
-                    </ul>
-                </div>
-            </template>
-          
-            <li v-else>Kelas Belum tersedia</li>
-            </main>
 
-            <!-- footer -->
-            <footer-component></footer-component>
+        <main>
+            <kelas/>
+        </main>
+
+        <!-- footer -->
+        <footer-component></footer-component>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
@@ -59,11 +41,16 @@
             template : 
             `<header>
                 <img src="./images/vuejs.jpeg" alt="" width="250">
-
+                <p v-text="pesan"></p>
                 <p>
                     The progressive Javascript Framework
                 </p>
-            </header>`
+            </header>`,
+            data : function () {
+                return {
+                   pesan :  'Hello Component',
+                }
+            }
         })
         Vue.component('footer-component', {
             template :
@@ -73,20 +60,52 @@
             </footer>
             `
         })
-        const vm = new Vue({
-            el : '#app',
-            data : {
-                kelas : ['Gilang', 'PHP', 'Ruby'],
-                kelasBaru : "",
+
+        Vue.component('kelas', {
+            template : 
+            `
+            <div>
+                <h3>Tambah kelas</h3>
+
+                <p>
+                    <input type="text" v-on:keyup.enter="submit" placeholder="nama kelas" v-model="kelasBaru">
+                </p>
+                <hr>
+                
+                <h3>Daftar Kelas ({{ kelas.length }})</h3>
+                <template>
+                    <div>
+                        <ul v-if="kelas.length > 1">
+                            <li v-for="(item, index) in kelas" :key="index">
+                                {{ index+1 }} - {{ item }}
+                            </li>
+                        </ul>
+                    </div>
+                </template>
+            
+                <li v-else>Kelas Belum tersedia</li>
+            <div>
+            `,
+            data : function () {
+                return {
+                    kelas : ['Gilang', 'PHP', 'Ruby'],
+                    kelasBaru : "",
+                }
             },
             methods : {
-                
                 submit : function (){
                     // let text = event.target.value
                     this.kelas.unshift(this.kelasBaru)
                     // event.target.value = ""
                     this.kelasBaru = ""
                 }
+            },
+        })
+        const vm = new Vue({
+            el : '#app',
+            data : {
+                kelas : ['Gilang', 'PHP', 'Ruby'],
+                kelasBaru : "",
             },
             computed : {
                
