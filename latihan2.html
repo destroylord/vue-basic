@@ -24,7 +24,8 @@
     
     <div id="app">
         <!-- header -->
-        <header-component></header-component>
+        <header-component nama="Vuejs" image="./images/vuejs.jpeg"></header-component>
+        <header-component nama="ReactJs" image="./images/reactjs.jpg"></header-component>
 
         <main>
             <kelas/>
@@ -38,10 +39,12 @@
     <script>
 
         Vue.component('header-component', {
+            props : ['nama', 'image'] ,
             template : 
             `<header>
-                <img src="./images/vuejs.jpeg" alt="" width="250">
+                <img :src="image" alt="" width="250">
                 <p v-text="pesan"></p>
+                <p>{{ 'Hello'+nama }}</p>
                 <p>
                     The progressive Javascript Framework
                 </p>
