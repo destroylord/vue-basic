@@ -30,7 +30,7 @@
             <h5>{{ getName() }}</h5>
             <p>{{ namaLengkap }}</p>
             <p>
-                <input type="text" v-on:keyup.enter="submit" placeholder="nama kelas">
+                <input type="text" v-on:keyup.enter="submit" placeholder="nama kelas" v-model="kelasBaru">
             </p>
             <p><b>{{ bilangan }} </b> bilangan ini adalah bilangan {{ infoBilangan }}</p>
             <p>
@@ -103,7 +103,8 @@
                 gambar : './images/vuejs.jpeg',
                 menu : 'home',
                 kelas : ['Gilang', 'PHP', 'Ruby'],
-                numbers : [1, 2, 3, 4, 5]
+                numbers : [1, 2, 3, 4, 5],
+                kelasBaru : ""
             },
             methods : {
                 getName : function () {
@@ -128,10 +129,11 @@
                     // console.log(event)
                     this.menu = data
                 },
-                submit : function (event){
-                    let text = event.target.value
-                    this.kelas.unshift(text)
-                    event.target.value = ""
+                submit : function (){
+                    // let text = event.target.value
+                    this.kelas.unshift(this.kelasBaru)
+                    // event.target.value = ""
+                    this.kelasBaru = ""
                 }
             },
             computed : {
