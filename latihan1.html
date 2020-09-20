@@ -29,7 +29,9 @@
             <!-- <h4>{{ isActive ? 'success' : 'danger' }}</h4> -->
             <h5>{{ getName() }}</h5>
             <p>{{ namaLengkap }}</p>
-            <input type="text" v-model="name">
+            <p>
+                <input type="text" v-on:keyup.enter="submit" placeholder="nama kelas">
+            </p>
             <p><b>{{ bilangan }} </b> bilangan ini adalah bilangan {{ infoBilangan }}</p>
             <p>
                 <button @click="handleClick()">Ditekan</button>
@@ -125,6 +127,11 @@
                     // event.preventDefault();
                     // console.log(event)
                     this.menu = data
+                },
+                submit : function (event){
+                    let text = event.target.value
+                    this.kelas.unshift(text)
+                    event.target.value = ""
                 }
             },
             computed : {
